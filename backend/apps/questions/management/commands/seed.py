@@ -318,6 +318,84 @@ QUESTIONS = [
         "prompt": "What is the name of Tony Stark's AI assistant in the Iron Man films?",
         "correct_answer": "JARVIS",
     },
+    # ── Math top-up (need 1 more → total 5) ──────────────────────────────────
+    {
+        "type": "single", "category": "Math", "difficulty": "easy",
+        "prompt": "What is the value of pi rounded to two decimal places?",
+        "choices": [
+            {"text": "3.12", "is_correct": False},
+            {"text": "3.14", "is_correct": True},
+            {"text": "3.16", "is_correct": False},
+            {"text": "3.18", "is_correct": False},
+        ],
+    },
+    {
+        "type": "single", "category": "Math", "difficulty": "medium",
+        "prompt": "What is the square root of 144?",
+        "choices": [
+            {"text": "10", "is_correct": False},
+            {"text": "11", "is_correct": False},
+            {"text": "12", "is_correct": True},
+            {"text": "14", "is_correct": False},
+        ],
+    },
+    {
+        "type": "text", "category": "Math", "difficulty": "hard",
+        "prompt": "What is the Pythagorean theorem?",
+        "correct_answer": "In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides (a² + b² = c²).",
+    },
+    # ── Biology top-up (need 2 more → total 5) ───────────────────────────────
+    {
+        "type": "single", "category": "Biology", "difficulty": "easy",
+        "prompt": "What is the powerhouse of the cell?",
+        "choices": [
+            {"text": "Nucleus", "is_correct": False},
+            {"text": "Ribosome", "is_correct": False},
+            {"text": "Mitochondria", "is_correct": True},
+            {"text": "Golgi apparatus", "is_correct": False},
+        ],
+    },
+    {
+        "type": "multiple", "category": "Biology", "difficulty": "medium",
+        "prompt": "Which of the following are types of blood cells?",
+        "choices": [
+            {"text": "Red blood cells", "is_correct": True},
+            {"text": "White blood cells", "is_correct": True},
+            {"text": "Platelets", "is_correct": True},
+            {"text": "Plasma cells", "is_correct": False},
+        ],
+    },
+    {
+        "type": "numerical", "category": "Biology", "difficulty": "hard",
+        "prompt": "How many pairs of chromosomes does a typical human cell contain?",
+        "correct_answer": "23",
+    },
+    # ── Technology top-up (need 2 more → total 5) ────────────────────────────
+    {
+        "type": "single", "category": "Technology", "difficulty": "easy",
+        "prompt": "What does CPU stand for?",
+        "choices": [
+            {"text": "Central Processing Unit", "is_correct": True},
+            {"text": "Central Power Unit", "is_correct": False},
+            {"text": "Computer Processing Unit", "is_correct": False},
+            {"text": "Core Processing Unit", "is_correct": False},
+        ],
+    },
+    {
+        "type": "multiple", "category": "Technology", "difficulty": "medium",
+        "prompt": "Which of the following are cloud computing providers?",
+        "choices": [
+            {"text": "AWS", "is_correct": True},
+            {"text": "Google Cloud", "is_correct": True},
+            {"text": "Microsoft Azure", "is_correct": True},
+            {"text": "Oracle Financials", "is_correct": False},
+        ],
+    },
+    {
+        "type": "text", "category": "Technology", "difficulty": "hard",
+        "prompt": "What does REST stand for in REST API?",
+        "correct_answer": "Representational State Transfer",
+    },
 ]
 
 
