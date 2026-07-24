@@ -1,7 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&display=swap');
 @import "tailwindcss";
 
-/* Visible focus ring for keyboard navigation */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-brand: #f59e0b;
+  --color-brand-light: #fef3c7;
+  --color-brand-dark: #d97706;
+  --color-surface: #ffffff;
+  --color-bg: #f7f6f3;
+  --color-border: #e5e2db;
+  --color-text: #1c1917;
+  --color-muted: #78716c;
+}
+
+*, *::before, *::after {
+  font-family: 'Inter', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f6f3;
+  color: #1c1917;
+}
+
+/* Visible focus ring */
 *:focus-visible {
-  outline: 2px solid #6366f1;
+  outline: 2px solid #f59e0b;
   outline-offset: 2px;
+}
+
+/* Smooth transitions globally */
+button, a, input, textarea, select {
+  transition: all 0.15s ease;
 }

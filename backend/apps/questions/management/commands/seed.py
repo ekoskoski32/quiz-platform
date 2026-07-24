@@ -210,6 +210,114 @@ QUESTIONS = [
         "prompt": "Take a photo of something in your surroundings that is circular.",
         "correct_answer": "A photo of a circular object.",
     },
+    # ── Extra questions (ensure all categories have ≥5) ───────────────────────
+    {
+        "type": "single", "category": "History", "difficulty": "easy",
+        "prompt": "Who was the first President of the United States?",
+        "choices": [
+            {"text": "Thomas Jefferson", "is_correct": False},
+            {"text": "George Washington", "is_correct": True},
+            {"text": "Abraham Lincoln", "is_correct": False},
+            {"text": "John Adams", "is_correct": False},
+        ],
+    },
+    {
+        "type": "multiple", "category": "History", "difficulty": "hard",
+        "prompt": "Which of the following were ancient wonders of the world?",
+        "choices": [
+            {"text": "The Great Pyramid of Giza", "is_correct": True},
+            {"text": "The Colosseum", "is_correct": False},
+            {"text": "The Hanging Gardens of Babylon", "is_correct": True},
+            {"text": "The Great Wall of China", "is_correct": False},
+            {"text": "The Statue of Zeus at Olympia", "is_correct": True},
+        ],
+    },
+    {
+        "type": "text", "category": "History", "difficulty": "medium",
+        "prompt": "What event triggered the start of World War I?",
+        "correct_answer": "The assassination of Archduke Franz Ferdinand of Austria in Sarajevo in 1914.",
+    },
+    {
+        "type": "single", "category": "Geography", "difficulty": "medium",
+        "prompt": "What is the longest river in the world?",
+        "choices": [
+            {"text": "Amazon", "is_correct": False},
+            {"text": "Yangtze", "is_correct": False},
+            {"text": "Nile", "is_correct": True},
+            {"text": "Mississippi", "is_correct": False},
+        ],
+    },
+    {
+        "type": "numerical", "category": "Geography", "difficulty": "hard",
+        "prompt": "How many countries are in the United Nations (as of 2024)?",
+        "correct_answer": "193",
+    },
+    {
+        "type": "single", "category": "Geography", "difficulty": "easy",
+        "prompt": "What is the smallest country in the world by area?",
+        "choices": [
+            {"text": "Monaco", "is_correct": False},
+            {"text": "San Marino", "is_correct": False},
+            {"text": "Vatican City", "is_correct": True},
+            {"text": "Liechtenstein", "is_correct": False},
+        ],
+    },
+    {
+        "type": "text", "category": "Art", "difficulty": "medium",
+        "prompt": "What art movement is Salvador Dali associated with?",
+        "correct_answer": "Surrealism",
+    },
+    {
+        "type": "single", "category": "Art", "difficulty": "easy",
+        "prompt": "In what museum is the Mona Lisa displayed?",
+        "choices": [
+            {"text": "The Louvre", "is_correct": True},
+            {"text": "The Metropolitan Museum of Art", "is_correct": False},
+            {"text": "The Uffizi Gallery", "is_correct": False},
+            {"text": "The Prado", "is_correct": False},
+        ],
+    },
+    {
+        "type": "numerical", "category": "Art", "difficulty": "hard",
+        "prompt": "In what year did Vincent van Gogh paint Starry Night?",
+        "correct_answer": "1889",
+    },
+    {
+        "type": "multiple", "category": "Art", "difficulty": "medium",
+        "prompt": "Which of the following are Impressionist painters?",
+        "choices": [
+            {"text": "Claude Monet", "is_correct": True},
+            {"text": "Pablo Picasso", "is_correct": False},
+            {"text": "Pierre-Auguste Renoir", "is_correct": True},
+            {"text": "Michelangelo", "is_correct": False},
+            {"text": "Edgar Degas", "is_correct": True},
+        ],
+    },
+    {
+        "type": "single", "category": "Pop Culture", "difficulty": "easy",
+        "prompt": "Which band released the album Abbey Road?",
+        "choices": [
+            {"text": "The Rolling Stones", "is_correct": False},
+            {"text": "The Beatles", "is_correct": True},
+            {"text": "Led Zeppelin", "is_correct": False},
+            {"text": "Pink Floyd", "is_correct": False},
+        ],
+    },
+    {
+        "type": "single", "category": "Pop Culture", "difficulty": "medium",
+        "prompt": "Which movie won the first Academy Award for Best Picture?",
+        "choices": [
+            {"text": "Gone with the Wind", "is_correct": False},
+            {"text": "Casablanca", "is_correct": False},
+            {"text": "Wings", "is_correct": True},
+            {"text": "Sunrise", "is_correct": False},
+        ],
+    },
+    {
+        "type": "text", "category": "Pop Culture", "difficulty": "easy",
+        "prompt": "What is the name of Tony Stark's AI assistant in the Iron Man films?",
+        "correct_answer": "JARVIS",
+    },
 ]
 
 

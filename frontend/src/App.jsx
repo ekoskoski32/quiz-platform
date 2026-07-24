@@ -10,12 +10,17 @@ import Admin from './pages/Admin'
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center text-gray-400">
-      Setting up your session…
+    <div className="min-h-screen bg-[#f7f6f3] flex items-center justify-center">
+      <div className="flex gap-1.5">
+        {[0,1,2].map(i => (
+          <div key={i} className="w-2 h-2 bg-amber-400 rounded-full animate-bounce"
+            style={{ animationDelay: `${i*0.15}s` }} />
+        ))}
+      </div>
     </div>
   )
   return user ? children : (
-    <div className="min-h-screen flex items-center justify-center text-gray-400">
+    <div className="min-h-screen bg-[#f7f6f3] flex items-center justify-center text-stone-400 text-sm">
       Connecting…
     </div>
   )
@@ -24,7 +29,6 @@ function ProtectedRoute({ children }) {
 export default function App() {
   return (
     <Routes>
-      {/* Admin-only login route — regular users never need this */}
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path="/quiz/:id" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
