@@ -110,7 +110,6 @@ export default function QuestionCard({ question, index, response, onResponseChan
               'bg-red-100 text-red-700'}`}>
               {question.difficulty}
             </span>
-            <span className="text-xs bg-stone-100 text-stone-400 rounded-full px-2.5 py-0.5">{TYPE_LABEL[question.type]}</span>
           </div>
           <p className="text-stone-900 font-medium text-sm leading-relaxed">{question.prompt}</p>
           {Renderer && <Renderer question={question} value={response} onChange={onResponseChange} />}

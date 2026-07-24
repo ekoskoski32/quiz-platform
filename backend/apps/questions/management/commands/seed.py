@@ -341,8 +341,8 @@ QUESTIONS = [
     },
     {
         "type": "text", "category": "Math", "difficulty": "hard",
-        "prompt": "What is the Pythagorean theorem?",
-        "correct_answer": "In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides (a² + b² = c²).",
+        "prompt": "What is the difference between mean, median, and mode?",
+        "correct_answer": "Mean is the average of all values; median is the middle value when sorted; mode is the most frequently occurring value.",
     },
     # ── Biology top-up (need 2 more → total 5) ───────────────────────────────
     {
