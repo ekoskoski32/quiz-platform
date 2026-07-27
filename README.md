@@ -2,7 +2,7 @@
 
 A full-stack quiz platform built with **Django REST Framework** + **React**. Features an admin question bank, a randomized 5-question quiz player, automatic grading, AI-assisted grading for text/image questions, and full attempt history per user.
 
-> Built as a take-home assignment. AI tools (Claude via Hermes) were used to assist with scaffolding and implementation.
+> Built as a take-home assignment. AI tools (Claude) were used to assist with scaffolding and implementation.
 
 ---
 
