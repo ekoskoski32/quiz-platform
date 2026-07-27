@@ -78,7 +78,7 @@ export default function Quiz() {
         {/* Header */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-2">
-            <h1 className="text-xl font-bold text-stone-900">Quiz #{attempt.id}</h1>
+            <h1 className="text-xl font-bold text-stone-900">{attempt.questions[0]?.category || 'Quiz'}</h1>
             <span className="text-sm text-stone-500">{answered}/{total} answered</span>
           </div>
           {/* Progress bar */}
