@@ -46,7 +46,7 @@ def grade_answer(answer) -> dict:
 
 def _grade_text(prompt: str, correct_answer: str, user_answer: str) -> dict:
     api_key = os.getenv("OPENAI_API_KEY", "stub")
-    if api_key == "stub" or not api_key.startswith("sk-"):
+    if api_key == "stub" or (not api_key.startswith("sk-") and not api_key.startswith("gsk_")):
         # Stub: simple keyword overlap heuristic
         user_words = set(user_answer.lower().split())
         correct_words = set(correct_answer.lower().split())
@@ -59,7 +59,7 @@ def _grade_text(prompt: str, correct_answer: str, user_answer: str) -> dict:
 
     try:
         import openai
-        client = openai.OpenAI(api_key=api_key)
+        client = openai.OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
         system_msg = (
             "You are a quiz grader. Given a question, a model answer, and a "
             "student response, decide if the student answer is essentially correct. "
@@ -68,7 +68,7 @@ def _grade_text(prompt: str, correct_answer: str, user_answer: str) -> dict:
         )
         user_msg = f"Question: {prompt}\nModel answer: {correct_answer}\nStudent answer: {user_answer}"
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {"role": "system", "content": system_msg},
                 {"role": "user", "content": user_msg},
@@ -83,7 +83,7 @@ def _grade_text(prompt: str, correct_answer: str, user_answer: str) -> dict:
 
 def _grade_image(prompt: str, image_path: str) -> dict:
     api_key = os.getenv("OPENAI_API_KEY", "stub")
-    if api_key == "stub" or not api_key.startswith("sk-"):
+    if api_key == "stub" or (not api_key.startswith("sk-") and not api_key.startswith("gsk_")):
         return {
             "is_correct": None,
             "ai_feedback": "[Stub] Image grading requires an OpenAI API key. Add OPENAI_API_KEY to .env.",
@@ -102,7 +102,7 @@ def _grade_image(prompt: str, image_path: str) -> dict:
             'Reply ONLY with valid JSON: {"is_correct": true/false, "feedback": "..."}'
         )
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="llama-3.3-70b-versatile",
             messages=[
                 {
                     "role": "user",
