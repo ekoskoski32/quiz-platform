@@ -205,4 +205,4 @@ Categories included: Geography, Science, Math, History, Technology, Biology, Art
 
 ## Time Estimate
 
-~6–8 hours of development time (including setup, debugging, and UI polish).
+~5 hours of development time.
