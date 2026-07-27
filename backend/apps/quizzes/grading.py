@@ -95,14 +95,14 @@ def _grade_image(prompt: str, image_path: str) -> dict:
         with open(image_path, "rb") as f:
             b64 = base64.b64encode(f.read()).decode()
 
-        client = openai.OpenAI(api_key=api_key)
+        client = openai.OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
         prompt_text = (
             f"Quiz question: {prompt}\n"
             "Does the uploaded image fulfill the requirement described in the question? "
             'Reply ONLY with valid JSON: {"is_correct": true/false, "feedback": "..."}'
         )
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
             messages=[
                 {
                     "role": "user",
