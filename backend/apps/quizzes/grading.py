@@ -82,11 +82,11 @@ def _grade_text(prompt: str, correct_answer: str, user_answer: str) -> dict:
 
 
 def _grade_image(prompt: str, image_path: str) -> dict:
-    api_key = os.getenv("OPENAI_API_KEY", "stub")
-    if api_key == "stub" or (not api_key.startswith("sk-") and not api_key.startswith("gsk_")):
+    api_key = os.getenv("OPENROUTER_API_KEY", "stub")
+    if api_key == "stub":
         return {
             "is_correct": None,
-            "ai_feedback": "[Stub] Image grading requires an OpenAI API key. Add OPENAI_API_KEY to .env.",
+            "ai_feedback": "[Stub] Image grading requires an OpenRouter API key. Add OPENROUTER_API_KEY to .env.",
         }
 
     try:
@@ -95,14 +95,17 @@ def _grade_image(prompt: str, image_path: str) -> dict:
         with open(image_path, "rb") as f:
             b64 = base64.b64encode(f.read()).decode()
 
-        client = openai.OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
+        client = openai.OpenAI(
+            api_key=api_key,
+            base_url="https://openrouter.ai/api/v1",
+        )
         prompt_text = (
             f"Quiz question: {prompt}\n"
             "Does the uploaded image fulfill the requirement described in the question? "
             'Reply ONLY with valid JSON: {"is_correct": true/false, "feedback": "..."}'
         )
         response = client.chat.completions.create(
-            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            model="nvidia/nemotron-nano-12b-v2-vl:free",
             messages=[
                 {
                     "role": "user",

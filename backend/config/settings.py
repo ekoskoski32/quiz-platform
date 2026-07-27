@@ -124,3 +124,4 @@ REST_FRAMEWORK = {
 CORS_ALLOW_ALL_ORIGINS = True   # tightened post-deploy once we have the Vercel URL
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "stub")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "stub")
