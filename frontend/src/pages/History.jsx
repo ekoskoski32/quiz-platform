@@ -55,7 +55,7 @@ export default function History() {
   useEffect(() => {
     if (isGuest) return
     Promise.all([api.get('/attempts/'), api.get('/attempts/stats/')])
-      .then(([a, s]) => { setAttempts(a.data); setStats(s.data) })
+      .then(([a, s]) => { setAttempts(a.data.filter(x => x.submitted_at)); setStats(s.data) })
       .finally(() => setLoading(false))
   }, [isGuest])
 
@@ -73,7 +73,7 @@ export default function History() {
             <div className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
               <p className="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-1">Overall score</p>
               <p className="text-4xl font-bold text-amber-500">{stats.overall_pct}<span className="text-xl text-stone-300">%</span></p>
-              <p className="text-xs text-stone-400 mt-1">{stats.total_attempts} quiz{stats.total_attempts !== 1 ? 'zes' : ''} taken</p>
+              <p className="text-xs text-stone-400 mt-1">{stats.total_attempts} quiz{stats.total_attempts !== 1 ? 'zes' : ''} completed</p>
             </div>
             <div className="bg-white border border-stone-200 rounded-2xl p-5 shadow-sm">
               <p className="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-1">Strongest subject</p>
@@ -117,9 +117,9 @@ export default function History() {
                 <li key={a.id}>
                   <Link to={`/results/${a.id}`}
                     className="flex items-center justify-between bg-white border border-stone-200 hover:border-amber-300 rounded-2xl px-5 py-4 group transition-colors shadow-sm"
-                    aria-label={`Attempt ${a.id}`}>
+                    aria-label={`Quiz on ${new Date(a.started_at).toLocaleDateString()}`}>
                     <div>
-                      <p className="text-sm font-semibold text-stone-800 group-hover:text-amber-700">Attempt #{a.id}</p>
+                      <p className="text-sm font-semibold text-stone-800 group-hover:text-amber-700">Quiz — {new Date(a.started_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
                       <p className="text-xs text-stone-400 mt-0.5">
                         {new Date(a.started_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
                       </p>
